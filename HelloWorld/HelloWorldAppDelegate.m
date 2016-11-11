@@ -10,9 +10,9 @@
 
 #import "HelloWorldViewController.h"
 
-@import SonomaCore;
-@import SonomaAnalytics;
-@import SonomaCrashes;
+@import MobileCenter;
+@import MobileCenterAnalytics;
+@import MobileCenterCrashes;
 
 @implementation HelloWorldAppDelegate
 
@@ -21,7 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [SNMSonoma start:@"{04ed8173-fe48-4a69-b3eb-b82c353d1c64}" withFeatures:@[[SNMAnalytics class], [SNMCrashes class]]];
+    /*[MSMobileCenter setLogLevel:MSLogLevelVerbose];*/
+    [MSMobileCenter start:@"e90c3b96-327c-4c29-96a8-f16da7fb3a7e" withServices:@[[MSAnalytics class], [MSCrashes class]]];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[HelloWorldViewController alloc] initWithNibName:@"HelloWorldViewController" bundle:nil];
